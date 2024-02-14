@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Manon</title>
+    <style>
+        body {
+            background-color: thistle;
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        #question {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+        #image {
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
+        #message {
+            display: none;
+        }
+        #yes {
+            background-color: lawngreen;
+            width: 60px;
+            height: 40px;
+        }
+        #no {
+            background-color: red;
+            width: 60px;
+            height: 40px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="question">
+            Will you be my valentine?
+        </div>
+        <button id="yes">Yes</button>
+        <button id="no">NO</button>
+        <br>
+        <img id="image" src="" alt="">
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById("yes").addEventListener("click", function() {
+            document.getElementById("image").src = "https://i.pinimg.com/564x/56/6c/17/566c17153fc68655aaf62c4cd4852946.jpg";
+            document.getElementById("image").style.display = "block";
+            document.getElementById("image").style.position = "relative";
+            document.getElementById("message").textContent = "I Love U! see U soon <3";
+            document.getElementById("message").style.display = "block";
+        });
+
+        document.getElementById("no").addEventListener("click", function() {
+            document.getElementById("image").src = "https://i.pinimg.com/736x/46/a9/3a/46a93ac1b4135e093c1790b7b2e36453.jpg";
+            document.getElementById("image").style.display = "block";
+            document.getElementById("image").style.position = "relative";
+            document.getElementById("message").textContent = "";
+            document.getElementById("message").style.display = "none";
+            
+            // Change position of the "No" button
+            var buttonNo = document.getElementById("no");
+            var buttonWidth = buttonNo.offsetWidth;
+            var buttonHeight = buttonNo.offsetHeight;
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            var i = Math.floor(Math.random() * (windowWidth - buttonWidth));
+            var j = Math.floor(Math.random() * (windowHeight - buttonHeight));
+            buttonNo.style.left = i + "px";
+            buttonNo.style.top = j + "px";
+        });
+    </script>
+</body>
+</html>
